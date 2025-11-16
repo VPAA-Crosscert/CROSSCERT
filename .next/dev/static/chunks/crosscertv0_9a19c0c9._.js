@@ -600,7 +600,7 @@ function ParticipantTopbar() {
         columnNumber: 5
     }, this);
 }
-_s(ParticipantTopbar, "FhiswF6ltdFNQv7M/dwClwfCdgQ=");
+_s(ParticipantTopbar, "mF/AdoDc/gZnzfOQa9Ad4ZqFh0E=");
 _c = ParticipantTopbar;
 var _c;
 __turbopack_context__.k.register(_c, "ParticipantTopbar");

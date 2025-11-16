@@ -498,7 +498,7 @@ function AdminDashboard() {
         columnNumber: 5
     }, this);
 }
-_s(AdminDashboard, "9j1HT/0eiTJLtZvIo6uxnX+tbjw=", false, function() {
+_s(AdminDashboard, "xjd/dpBF6AU2VnqvruV8WSkUaPA=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];

@@ -592,6 +592,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/crosscertv0/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/crosscertv0/node_modules/next/navigation.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/crosscertv0/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$components$2f$navigation$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/crosscertv0/components/navigation.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$components$2f$landing$2d$hero$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/crosscertv0/components/landing-hero.tsx [app-ssr] (ecmascript)");
 'use client';
@@ -599,25 +600,90 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$components$2f
 ;
 ;
 ;
+;
 function Home() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    const [showSplash, setShowSplash] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    const departments = [
+        'STE',
+        'CET',
+        'SBME',
+        'CHATME',
+        'HUSOCOM',
+        'COME',
+        'CCJE'
+    ];
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const t = setTimeout(()=>setShowSplash(false), 1000);
+        return ()=>clearTimeout(t);
+    }, []);
+    if (showSplash) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "min-h-screen flex items-center justify-center bg-background",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                className: "text-5xl font-bold tracking-tight",
+                children: "CROSSCERT"
+            }, void 0, false, {
+                fileName: "[project]/crosscertv0/app/page.tsx",
+                lineNumber: 21,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/crosscertv0/app/page.tsx",
+            lineNumber: 20,
+            columnNumber: 7
+        }, this);
+    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-background",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$components$2f$navigation$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Navigation"], {}, void 0, false, {
                 fileName: "[project]/crosscertv0/app/page.tsx",
-                lineNumber: 13,
+                lineNumber: 28,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$components$2f$landing$2d$hero$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LandingHero"], {}, void 0, false, {
                 fileName: "[project]/crosscertv0/app/page.tsx",
-                lineNumber: 14,
+                lineNumber: 29,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "py-2 -mt-6 overflow-hidden flex items-center justify-center marquee-mask",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "marquee whitespace-nowrap select-none",
+                    children: [
+                        departments.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "mx-8 text-xl md:text-2xl font-bold tracking-wide uppercase text-foreground/80 border border-border rounded-full px-5 py-2 bg-background/60 backdrop-blur-[1px]",
+                                children: d
+                            }, `vis-${d}`, false, {
+                                fileName: "[project]/crosscertv0/app/page.tsx",
+                                lineNumber: 35,
+                                columnNumber: 13
+                            }, this)),
+                        departments.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$crosscertv0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "mx-8 text-xl md:text-2xl font-bold tracking-wide uppercase text-foreground/80 border border-border rounded-full px-5 py-2 bg-background/60 backdrop-blur-[1px]",
+                                "aria-hidden": true,
+                                children: d
+                            }, `dup-${d}`, false, {
+                                fileName: "[project]/crosscertv0/app/page.tsx",
+                                lineNumber: 44,
+                                columnNumber: 13
+                            }, this))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/crosscertv0/app/page.tsx",
+                    lineNumber: 33,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/crosscertv0/app/page.tsx",
+                lineNumber: 32,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/crosscertv0/app/page.tsx",
-        lineNumber: 12,
+        lineNumber: 27,
         columnNumber: 5
     }, this);
 }

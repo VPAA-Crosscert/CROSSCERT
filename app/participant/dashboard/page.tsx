@@ -45,16 +45,9 @@ export default function ParticipantDashboard() {
 
   return (
     <div className="p-6 space-y-8">
-      {/* Header with Back Button */}
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <button
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </button>
           <h1 className="text-3xl font-bold text-foreground">Welcome Back!</h1>
           <p className="text-muted-foreground mt-1">Here's your activity summary</p>
         </div>
@@ -108,27 +101,34 @@ export default function ParticipantDashboard() {
       {/* Upcoming Events */}
       <Card className="p-6 border border-border bg-card">
         <h2 className="text-xl font-semibold text-foreground mb-4">Upcoming Events</h2>
-        <div className="space-y-3">
-          {upcomingEvents.length > 0 ? (
-            upcomingEvents.map((event) => (
-              <div key={event.id} className="flex items-center justify-between p-3 bg-muted rounded-lg hover:bg-muted/80 transition-colors">
-                <div>
-                  <p className="font-medium text-foreground">{event.name}</p>
-                  <p className="text-sm text-muted-foreground">{event.date} • {event.startTime}</p>
+        {upcomingEvents.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {upcomingEvents.map((event) => (
+              <div key={event.id} className="border border-border rounded-lg overflow-hidden bg-background hover:shadow-sm transition-shadow cursor-pointer" onClick={() => router.push(`/participant/event/${event.id}`)}>
+                {event.coverImage ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={event.coverImage} alt={event.name} className="w-full h-36 object-cover" />
+                ) : (
+                  <div className="w-full h-36 bg-gradient-to-br from-secondary/20 to-primary/20" />
+                )}
+                <div className="p-4 space-y-2">
+                  <h3 className="text-lg font-semibold text-foreground line-clamp-1">{event.name}</h3>
+                  <div className="text-sm text-muted-foreground space-y-1">
+                    <div>📅 {event.date}</div>
+                    {event.startTime && event.endTime && (
+                      <div>⏰ {event.startTime} - {event.endTime}</div>
+                    )}
+                    {event.venue && (
+                      <div>📍 {event.venue}</div>
+                    )}
+                  </div>
                 </div>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  onClick={() => router.push(`/participant/event/${event.id}`)}
-                >
-                  View
-                </Button>
               </div>
-            ))
-          ) : (
-            <p className="text-sm text-muted-foreground">No upcoming events yet</p>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-muted-foreground">No upcoming events yet</p>
+        )}
       </Card>
     </div>
   )

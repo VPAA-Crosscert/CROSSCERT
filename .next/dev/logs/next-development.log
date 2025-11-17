@@ -7,3 +7,36 @@
 [06:00:24.776] Server  LOG      ✓ Compiled in 1482ms
 [06:00:40.001] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [06:03:41.697] Browser LOG     Downloading QR code...
+[06:19:49.780] Server  LOG      ✓ Compiled in 9s
+[06:19:53.445] Server  LOG      ✓ Compiled in 1246ms
+[06:20:55.722] Server  LOG      ○ Compiling /admin/participants ...
+[06:22:42.969] Server  LOG      ✓ Compiled in 819ms
+[06:22:57.256] Server  LOG      ✓ Compiled in 1871ms
+[06:23:03.624] Browser ERROR   uncaughtError: ReferenceError: Calendar is not defined
+[06:23:23.944] Server  LOG      ✓ Compiled in 1985ms
+[06:23:23.964] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[06:23:25.376] Browser ERROR   uncaughtError: ReferenceError: Calendar is not defined
+[06:23:30.864] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:23:32.368] Browser ERROR   uncaughtError: ReferenceError: Calendar is not defined
+[06:45:38.742] Server  LOG      ✓ Compiled in 1919ms
+[06:45:38.868] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[06:45:52.328] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:48:18.903] Server  LOG      ✓ Compiled in 1489ms
+[06:48:51.293] Server  LOG      ✓ Compiled in 1161ms
+[06:49:00.995] Server  LOG      ✓ Compiled in 910ms
+[06:52:37.960] Server  LOG      ○ Compiling /admin/events/[id]/edit ...
+[07:11:28.441] Server  LOG      ✓ Compiled in 3.1s
+[07:11:35.149] Server  LOG      ✓ Compiled in 1225ms
+[07:11:53.523] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:13:26.132] Server  LOG      ✓ Compiled in 2.5s
+[07:15:21.169] Server  LOG      ✓ Compiled in 670ms
+[07:15:25.599] Server  LOG      ✓ Compiled in 616ms
+[07:15:38.743] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:17:09.013] Server  LOG      ✓ Compiled in 1767ms
+[07:17:11.989] Server  LOG      ✓ Compiled in 1408ms
+[07:20:18.052] Server  LOG      ✓ Compiled in 768ms
+[07:20:23.465] Server  LOG      ✓ Compiled in 1548ms
+[07:20:55.362] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:24:28.398] Server  LOG      ✓ Compiled in 1680ms
+[07:24:35.968] Server  LOG      ✓ Compiled in 1010ms
+[07:33:04.484] Server  LOG      ✓ Compiled in 5.4s

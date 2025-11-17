@@ -5,13 +5,27 @@ import { useState, useEffect } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { ArrowLeft, Plus, Edit, Trash2, Eye } from 'lucide-react'
+import { ArrowLeft, Plus, Edit, Trash2, Eye, Calendar } from 'lucide-react'
+
+type AdminEvent = {
+  id: number | string
+  name: string
+  date: string
+  participants: number
+  attended: number
+  evaluated: number
+  certificates: number
+  coverImage?: string
+  startTime?: string
+  endTime?: string
+  venue?: string
+}
 
 export default function AdminEvents() {
   const router = useRouter()
   const [searchTerm, setSearchTerm] = useState('')
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState<number | null>(null)
-  const [events, setEvents] = useState([
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState<string | number | null>(null)
+  const [events, setEvents] = useState<AdminEvent[]>([
     {
       id: 1,
       name: 'Python Workshop',
@@ -20,6 +34,10 @@ export default function AdminEvents() {
       attended: 28,
       evaluated: 25,
       certificates: 25,
+      coverImage: undefined as unknown as string,
+      startTime: '',
+      endTime: '',
+      venue: '',
     },
     {
       id: 2,
@@ -29,6 +47,10 @@ export default function AdminEvents() {
       attended: 48,
       evaluated: 45,
       certificates: 45,
+      coverImage: undefined as unknown as string,
+      startTime: '',
+      endTime: '',
+      venue: '',
     },
   ])
 
@@ -36,7 +58,7 @@ export default function AdminEvents() {
     const savedEvents = JSON.parse(localStorage.getItem('events') || '[]')
     if (savedEvents.length > 0) {
       // Format saved events to match table structure
-      const formattedEvents = savedEvents.map((event: any) => ({
+      const formattedEvents: AdminEvent[] = savedEvents.map((event: any) => ({
         id: event.id,
         name: event.name,
         date: event.date,
@@ -44,6 +66,10 @@ export default function AdminEvents() {
         attended: event.attended || 0,
         evaluated: event.evaluated || 0,
         certificates: event.certificates || 0,
+        coverImage: event.coverImage,
+        startTime: event.startTime,
+        endTime: event.endTime,
+        venue: event.venue,
       }))
       setEvents([...events, ...formattedEvents])
     }
@@ -53,7 +79,7 @@ export default function AdminEvents() {
     event.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string | number) => {
     setEvents(events.filter(e => e.id !== id))
     const savedEvents = JSON.parse(localStorage.getItem('events') || '[]')
     const updatedEvents = savedEvents.filter((e: any) => e.id !== id)
@@ -66,13 +92,6 @@ export default function AdminEvents() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <button
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </button>
           <h1 className="text-3xl font-bold text-foreground">Manage Events</h1>
         </div>
         <Button
@@ -92,63 +111,42 @@ export default function AdminEvents() {
         className="max-w-md bg-background border-border"
       />
 
-      {/* Events Table */}
-      <Card className="border border-border bg-card overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="border-b border-border bg-muted">
-              <tr>
-                <th className="px-6 py-3 text-left font-semibold text-foreground">Event Name</th>
-                <th className="px-6 py-3 text-left font-semibold text-foreground">Date</th>
-                <th className="px-6 py-3 text-left font-semibold text-foreground">Participants</th>
-                <th className="px-6 py-3 text-left font-semibold text-foreground">Attended</th>
-                <th className="px-6 py-3 text-left font-semibold text-foreground">Evaluated</th>
-                <th className="px-6 py-3 text-left font-semibold text-foreground">Certificates</th>
-                <th className="px-6 py-3 text-left font-semibold text-foreground">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {filteredEvents.map((event) => (
-                <tr key={event.id} className="hover:bg-muted transition-colors">
-                  <td className="px-6 py-4 text-foreground font-medium">{event.name}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{event.date}</td>
-                  <td className="px-6 py-4 text-foreground">{event.participants}</td>
-                  <td className="px-6 py-4 text-foreground">{event.attended}</td>
-                  <td className="px-6 py-4 text-foreground">{event.evaluated}</td>
-                  <td className="px-6 py-4 text-foreground">{event.certificates}</td>
-                  <td className="px-6 py-4 space-x-2">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      title="View event details"
-                      onClick={() => router.push(`/admin/events/${event.id}`)}
-                    >
-                      <Eye className="w-4 h-4" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      title="Edit event"
-                      onClick={() => router.push(`/admin/events/${event.id}/edit`)}
-                    >
-                      <Edit className="w-4 h-4" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-destructive"
-                      title="Delete event"
-                      onClick={() => setShowDeleteConfirm(event.id)}
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </Card>
+      {/* Events Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredEvents.map((event) => (
+          <Card key={event.id} className="border border-border bg-card overflow-hidden">
+            {event.coverImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={event.coverImage} alt={event.name} className="w-full h-40 object-cover" />
+            ) : (
+              <div className="w-full h-40 bg-gradient-to-br from-secondary/20 to-primary/20" />
+            )}
+            <div className="p-4 space-y-2">
+              <h3 className="text-lg font-semibold text-foreground line-clamp-1">{event.name}</h3>
+              <div className="text-sm text-muted-foreground space-y-1">
+                <div className="flex items-center gap-2"><Calendar className="w-4 h-4" /> <span>{event.date}</span></div>
+                {event.startTime && event.endTime && (
+                  <div>⏰ {event.startTime} - {event.endTime}</div>
+                )}
+                {event.venue && (
+                  <div>📍 {event.venue}</div>
+                )}
+              </div>
+              <div className="flex justify-end gap-1 pt-2">
+                <Button variant="ghost" size="sm" title="View" onClick={() => router.push(`/admin/events/${event.id}`)}>
+                  <Eye className="w-4 h-4" />
+                </Button>
+                <Button variant="ghost" size="sm" title="Edit" onClick={() => router.push(`/admin/events/${event.id}/edit`)}>
+                  <Edit className="w-4 h-4" />
+                </Button>
+                <Button variant="ghost" size="sm" className="text-destructive" title="Delete" onClick={() => setShowDeleteConfirm(event.id)}>
+                  <Trash2 className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (

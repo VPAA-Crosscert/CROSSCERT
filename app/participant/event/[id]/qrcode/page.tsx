@@ -50,9 +50,9 @@ export default function ParticipantQRCode() {
       {/* QR Code Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <Card className="p-8 border border-border bg-card max-w-md w-full mx-4 space-y-6">
-            <div className="flex items-start justify-between">
-              <h1 className="text-2xl font-bold text-foreground">Your Check-In Code</h1>
+          <Card className="p-6 border border-border bg-card w-full max-w-5xl mx-4">
+            <div className="flex items-start justify-between mb-4">
+              <h1 className="text-2xl font-bold text-foreground">Your Check-In Codes</h1>
               <button
                 onClick={handleCloseModal}
                 className="text-muted-foreground hover:text-foreground"
@@ -61,35 +61,48 @@ export default function ParticipantQRCode() {
               </button>
             </div>
 
-            <div className="space-y-4">
-              <div className="text-center">
-                <h2 className="text-lg font-semibold text-foreground mb-4">{participant.name}</h2>
+            {/* Landscape 4-column layout */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {/* 1: Participant Info */}
+              <div className="bg-muted p-4 rounded-lg border border-border space-y-2">
+                <h2 className="text-lg font-semibold text-foreground">{participant.name}</h2>
+                <p className="text-sm text-muted-foreground">juan.dela.cruz@example.com</p>
+                <div className="h-px bg-border" />
+                <div className="text-sm">
+                  <p className="text-muted-foreground">Department</p>
+                  <p className="font-medium text-foreground">College of Engineering</p>
+                </div>
+                <div className="text-sm">
+                  <p className="text-muted-foreground">Program</p>
+                  <p className="font-medium text-foreground">BS Computer Engineering</p>
+                </div>
               </div>
 
-              {/* QR Code Placeholder */}
-              <div className="bg-muted p-6 rounded-lg border-2 border-dashed border-border">
-                <div className="aspect-square bg-white rounded flex items-center justify-center">
-                  <div className="w-32 h-32 bg-gray-200 rounded flex items-center justify-center text-xs text-gray-500">
+              {/* 2: QR */}
+              <div className="bg-muted p-4 rounded-lg border border-border flex items-center justify-center">
+                <div className="aspect-square w-full max-w-56 bg-white rounded flex items-center justify-center">
+                  <div className="w-40 h-40 bg-gray-200 rounded flex items-center justify-center text-xs text-gray-500">
                     QR Code
                   </div>
                 </div>
               </div>
 
-              {/* Barcode Placeholder */}
-              <div className="bg-muted p-4 rounded-lg border-2 border-dashed border-border">
-                <div className="h-16 bg-white rounded flex items-center justify-center text-xs text-gray-500">
+              {/* 3: Barcode */}
+              <div className="bg-muted p-4 rounded-lg border border-border flex items-center justify-center">
+                <div className="w-full max-w-56 h-24 bg-white rounded flex items-center justify-center text-xs text-gray-500">
                   Barcode
                 </div>
               </div>
 
-              {/* Code Text */}
-              <div className="bg-muted p-4 rounded-lg text-center">
-                <p className="text-xs text-muted-foreground mb-1">Code</p>
-                <p className="font-mono font-bold text-foreground">{participant.qrCode}</p>
+              {/* 4: Number Equivalent */}
+              <div className="bg-muted p-4 rounded-lg border border-border text-center flex flex-col items-center justify-center">
+                <p className="text-xs text-muted-foreground mb-2">Code</p>
+                <p className="font-mono text-lg font-bold text-foreground break-all">{participant.qrCode}</p>
               </div>
             </div>
 
-            <div className="flex gap-3">
+            {/* Bottom Buttons */}
+            <div className="flex gap-3 mt-6">
               <Button
                 variant="outline"
                 className="flex-1"

@@ -1,10 +1,13 @@
 {
   "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/admin/events/[id]/edit/page": "app/admin/events/[id]/edit/page.js",
   "/admin/events/[id]/page": "app/admin/events/[id]/page.js",
   "/admin/events/create/page": "app/admin/events/create/page.js",
   "/admin/events/page": "app/admin/events/page.js",
+  "/admin/participants/page": "app/admin/participants/page.js",
   "/auth/signin/page": "app/auth/signin/page.js",
   "/page": "app/page.js",
+  "/participant/certificates/page": "app/participant/certificates/page.js",
   "/participant/dashboard/page": "app/participant/dashboard/page.js",
   "/participant/event/[id]/evaluation/page": "app/participant/event/[id]/evaluation/page.js",
   "/participant/event/[id]/page": "app/participant/event/[id]/page.js",
